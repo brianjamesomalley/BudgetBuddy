@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruthless Budget Mentor 💪</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<header class="header">
+<h1><i class="fas fa-fire"></i> Ruthless Budget Mentor</h1>
+<p>Your no-nonsense financial accountability partner</p>
+</header>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="showTab('register')">Register</button>
+<button class="tab-btn" onclick="showTab('expense')">Add Expense</button>
+<button class="tab-btn" onclick="showTab('dashboard')">Dashboard</button>
+</div>
+
+<!-- Registration Tab -->
+<div id="register" class="tab-content active">
+<div class="card">
+<h2><i class="fas fa-user-plus"></i> Join the Ruthless Journey</h2>
+<form id="registerForm">
+<div class="form-group">
+<label for="name">Full Name</label>
+<input type="text" id="name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="form-group">
+<label for="phone">Phone Number (with country code)</label>
+<input type="tel" id="phone" placeholder="+1234567890" required>
+</div>
+
+<div class="form-group">
+<label for="monthly_income">Monthly Income ($)</label>
+<input type="number" id="monthly_income" step="0.01" required>
+</div>
+
+<div class="form-group">
+<label for="monthly_budget">Monthly Budget ($)</label>
+<input type="number" id="monthly_budget" step="0.01" required>
+</div>
+
+<button type="submit" class="btn btn-primary">
+<i class="fas fa-rocket"></i> Start My Financial Journey
+</button>
+</form>
+</div>
+</div>
+
+<!-- Add Expense Tab -->
+<div id="expense" class="tab-content">
+<div class="card">
+<h2><i class="fas fa-receipt"></i> Track Your Spending</h2>
+<form id="expenseForm">
+<div class="form-group">
+<label for="user_id">User ID</label>
+<input type="number" id="user_id_expense" required>
+</div>
+
+<div class="form-group">
+<label for="amount">Amount ($)</label>
+<input type="number" id="amount" step="0.01" required>
+</div>
+
+<div class="form-group">
+<label for="category">Category</label>
+<select id="category" required>
+<option value="">Select Category</option>
+<option value="Food">🍔 Food</option>
+<option value="Transportation">🚗 Transportation</option>
+<option value="Entertainment">🎬 Entertainment</option>
+<option value="Utilities">⚡ Utilities</option>
+<option value="Other">📦 Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="description">Description (Optional)</label>
+<input type="text" id="description" placeholder="What did you spend on?">
+</div>
+
+<button type="submit" class="btn btn-danger">
+<i class="fas fa-plus"></i> Add Expense (Face the Truth!)
+</button>
+</form>
+</div>
+</div>
+
+<!-- Dashboard Tab -->
+<div id="dashboard" class="tab-content">
+<div class="dashboard-controls">
+<input type="number" id="user_id_dashboard" placeholder="Enter User ID" required>
+<button onclick="loadDashboard()" class="btn btn-primary">
+<i class="fas fa-sync"></i> Load Dashboard
+</button>
+<button onclick="sendDailySummary()" class="btn btn-warning">
+<i class="fas fa-paper-plane"></i> Send Daily Summary
+</button>
+</div>
+
+<div class="dashboard-grid">
+<div class="card">
+<h3><i class="fas fa-chart-pie"></i> Budget Status</h3>
+<div id="budgetStatus"></div>
+</div>
+
+<div class="card">
+<h3><i class="fas fa-list"></i> Recent Expenses</h3>
+<div id="recentExpenses"></div>
+</div>
+</div>
+</div>
+
+<div id="messages" class="messages"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
